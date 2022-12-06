@@ -1,0 +1,8 @@
+virtualenv karti
+source karti/bin/activate
+
+pip install -r requirements.txt
+
+source karti/bin/activate
+
+python ping_pong.py
