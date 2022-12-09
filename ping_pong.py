@@ -10,7 +10,7 @@ import psutil
 # hyperparameters
 H = 200 # number of hidden layer neurons
 batch_size = 10 # every how many episodes to do a param update?
-learning_rate = 1e-4
+learning_rate = 1e-6
 gamma = 0.99 # discount factor for reward
 decay_rate = 0.99 # decay factor for RMSProp leaky sum of grad^2
 resume = False # resume from previous checkpoint?
@@ -134,9 +134,10 @@ while True:
         MinutesGet, SecondsGet = divmod(SectoConvert, 60)
         HoursGet, MinutesGet = divmod(MinutesGet, 60)
         print("Total Hours:", HoursGet)
-        print("Tiotal Minutes:", MinutesGet)
+        print("Total Minutes:", MinutesGet)
         print("Total Seconds:", SecondsGet)
         print("RAM Used:",psutil.virtual_memory()[2])
+
         if episode_number % 100 == 0: pickle.dump(model, open('save.p', 'wb'))
         reward_sum = 0
         observation = env.reset() # reset env
